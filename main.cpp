@@ -1,4 +1,8 @@
+/*Perfil no GitHub: https://github.com/MatheusMartinsDeRamos*/
+
 #include <stdio.h>
+
+/*Esse código faz operações basicas de matematica, tais como adição, subtração, multiplicação e divisão*/
 
 int main() {
 /*Variaveis INICIO*/
@@ -29,12 +33,12 @@ printf("Digite o numero de qual operação deseja realizar \n");
     printf("  4.Divisão \n");
     scanf("%d", &operacao);
 /*Escolha da Operação FIM*/
-/*Escolha os números INICIO*/  
+/*Escolha dos números INICIO*/  
     printf("Escolha o primeiro número: \n");
     scanf("%f", &numero1);
     printf("Escolha o segundo número: \n");
     scanf("%f", &numero2);
-/*Escolha os números FIM*/
+/*Escolha dos números FIM*/
 /*Realizando operação INICIO*/ 
   switch (operacao)
     {
@@ -50,6 +54,7 @@ printf("Digite o numero de qual operação deseja realizar \n");
       default:
         printf("Parece que você informou uma operação incorreta, por isso não conseguimos finalizar o processo. \n"); 
     }
+  /*Imprimindo o resultado*/ 
   printf("O resultado é: %.2f \n\n", resultado);
 
   printf("Deseja realizar mais uma operação? %c \n", operacao);
@@ -57,6 +62,7 @@ printf("Digite o numero de qual operação deseja realizar \n");
   scanf("%d", &operacao);
 /*Realizando operação FIM*/   
   }
+  /*Verifico se o usuário disse que quer sair. Caso sim, apresenta um agradecimento.*/ 
   if (operacao = 9) {
     printf("Obrigado por usar nosso sistema! \n");
     printf("TCHAU! \n");

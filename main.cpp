@@ -1,8 +1,11 @@
 /*Perfil no GitHub: https://github.com/MatheusMartinsDeRamos*/
 
 #include <stdio.h>
+#include <math.h>
 
-/*Esse código faz operações basicas de matematica, tais como adição, subtração, multiplicação e divisão*/
+/* Esse código faz operações de matematica, tais como adição, subtração, multiplicação e divisão, potencialização e Raiz Quadrada */
+/* POTENCIALIZAçÂO:  https://pt.stackoverflow.com/questions/130147/como-usar-a-fun%C3%A7%C3%A3o-pow-potencia-em-c */
+/*RAIZ QUADRADA: http://linguagemc.com.br/a-biblioteca-math-h/ */
 
 int main() {
 /*Variaveis INICIO*/
@@ -11,7 +14,8 @@ int main() {
   char universidade[100]  = "La Salle";
   char matricula[100]  = "202213339";
   float numero1,numero2,resultado;
-  int operacao;
+  int opcaoMenu;
+  bool mostrarMenu= true;
 
 /*Variaveis FIM*/
 
@@ -24,48 +28,67 @@ int main() {
   printf("_-_-_-_-_-_- \n");
 /*Apresentação FIM*/ 
   
-/*Escolha da Operação INICIO*/
-printf("Digite o numero de qual operação deseja realizar \n");
-  while (operacao != 9) {
-    printf("  1.Soma \n");
-    printf("  2.Subtração \n");
-    printf("  3.Multiplicação \n");
-    printf("  4.Divisão \n");
-    scanf("%d", &operacao);
-/*Escolha da Operação FIM*/
-/*Escolha dos números INICIO*/  
-    printf("Escolha o primeiro número: \n");
-    scanf("%f", &numero1);
-    printf("Escolha o segundo número: \n");
-    scanf("%f", &numero2);
-/*Escolha dos números FIM*/
-/*Realizando operação INICIO*/ 
-  switch (operacao)
-    {
+ do {
+      /*Escolha da Operação INICIO*/
+      printf("Digite o numero de qual operação deseja realizar \n");
+      printf("  1.Potenciação \n");
+      printf("  2.Soma \n");
+      printf("  3.Subtração \n");
+      printf("  4.Multiplicação \n");
+      printf("  5.Divisão \n");
+      printf("  6.Raiz Quadrada \n");
+      printf("  0.SAIR \n");
+      scanf("%d", &opcaoMenu);
+      /*Escolha da Operação FIM*/
+      if (opcaoMenu == 0) {
+      mostrarMenu = false;
+      printf("Obrigado por usar nosso sistema! Até logo!");
+      }
+      else if (opcaoMenu == 1 || opcaoMenu == 2 || opcaoMenu == 3 || opcaoMenu == 4 || opcaoMenu == 5){
+      /*mostrarMenu = true;*/
+      /*Escolha dos números INICIO*/
+      printf("'=-=-=-=-=-=-=-=-=-=-=-=- \n");
+      printf("Escolha o primeiro número: \n");
+      scanf("%f", &numero1);
+      printf("Escolha o segundo número: \n");
+      scanf("%f", &numero2);
+      /*Escolha dos números FIM*/
+      switch (opcaoMenu) {
       case 1:
-    resultado = numero1 + numero2;       
+      resultado = pow(numero1, numero2);       
       break;
-      case 2: resultado = numero1 - numero2;
+      case 2:
+      resultado = numero1 + numero2;       
       break;
-      case 3: resultado = numero1 * numero2;
+      case 3: resultado = numero1 - numero2;
       break;
-      case 4: resultado = numero1 / numero2;
+      case 4: resultado = numero1 * numero2;
       break;
-      default:
-        printf("Parece que você informou uma operação incorreta, por isso não conseguimos finalizar o processo. \n"); 
-    }
-  /*Imprimindo o resultado*/ 
-  printf("O resultado é: %.2f \n\n", resultado);
+      case 5: resultado = numero1 / numero2;
+      break;
+      }
+        printf("'=-=-=-=-=-=-=-=-=-=-=-=- \n");
+        printf("O resultado é: %.2f \n\n", resultado);
+        printf("'=-=-=-=-=-=-=-=-=-=-=-=- \n");
+      }
 
-  printf("Deseja realizar mais uma operação? %c \n", operacao);
-  printf("Digite 9 para sair ou qualquer outro numero para continuar\n");
-  scanf("%d", &operacao);
-/*Realizando operação FIM*/   
+        else if (opcaoMenu == 6) {
+      printf("Escolha um número: \n");
+      scanf("%f", &numero1);
+      resultado = sqrt(numero1);
+      printf("'=-=-=-=-=-=-=-=-=-=-=-=- \n");
+      printf("O resultado é: %.2f \n\n", resultado);
+      printf("'=-=-=-=-=-=-=-=-=-=-=-=- \n");
+        }
+        
+      else {
+        printf("'=-=-=-=-=-=-=-=-=-=-=-=- \n");
+        printf("'%d' Não é uma opção válida! \n", opcaoMenu);
+        printf("'=-=-=-=-=-=-=-=-=-=-=-=- \n");
+        }
+   
+    }
+   
+while (mostrarMenu == true) ;
+   return 0;
   }
-  /*Verifico se o usuário disse que quer sair. Caso sim, apresenta um agradecimento.*/ 
-  if (operacao = 9) {
-    printf("Obrigado por usar nosso sistema! \n");
-    printf("TCHAU! \n");
-  }
-  return 0;
-}
